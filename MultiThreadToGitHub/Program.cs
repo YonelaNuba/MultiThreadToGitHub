@@ -19,6 +19,7 @@ namespace MultiThreadToGitHub
 
         public static void UpdatLoanStatus(string memberId)
         {
+            //Simulates the Update status
             Thread.Sleep(1000);
             Console.WriteLine($"Loan status updated for member '{memberId}'.");
         }
@@ -29,9 +30,11 @@ namespace MultiThreadToGitHub
             Thread searchThread = new Thread(() => SearchBook("C# Programming"));
             Thread updateThread = new Thread(() => UpdatLoanStatus("m12345"));
 
+            //Start the threads
             searchThread.Start();
             updateThread.Start();
 
+            //Join the threads
             searchThread.Join();
             updateThread.Join();
         }
