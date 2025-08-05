@@ -23,6 +23,7 @@ namespace MultiThreadToGitHub
             Console.WriteLine($"Loan status updated for member '{memberId}'.");
         }
 
+        // This method processes the request by starting two threads: one for searching a book and another for updating loan status.
         public static void ProcesssRequest()
         {
             Thread searchThread = new Thread(() => SearchBook("C# Programming"));
@@ -32,7 +33,7 @@ namespace MultiThreadToGitHub
             updateThread.Start();
 
             searchThread.Join();
-            updateThread.Join();   
+            updateThread.Join();
         }
         static void Main(string[] args)
         {
